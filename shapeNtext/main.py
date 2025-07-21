@@ -10,7 +10,7 @@ cv2.line(image,
          (200, 50), # End point (x2, y2)
          (255, 0, 0), # Color (Blue)
          3)          # Thickness
-
+# (x, y, z) -> (B, G, R) in OpenCV
 # 2️⃣ Rectangle
 cv2.rectangle(image, 
               (250, 30),   # Top-left corner (x1, y1)

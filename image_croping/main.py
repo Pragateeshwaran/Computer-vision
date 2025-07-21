@@ -8,15 +8,15 @@ cropping = False
 
 def mouse(event, x, y, flag, others):
     global start, end, cropping, image
-    if event == cv2.EVENT_LBUTTONDOWN:
+    if event == cv2.EVENT_LBUTTONDOWN: # Left mouse button down
         start = (x, y)
         cropping = True
-    if event == cv2.EVENT_MOUSEMOVE:
+    if event == cv2.EVENT_MOUSEMOVE: # Mouse move event
         if cropping:
             img = image.copy()
             cv2.rectangle(img, start, (x, y), (255, 0, 0), 2)
             cv2.imshow("img", img)
-    if event == cv2.EVENT_LBUTTONUP:
+    if event == cv2.EVENT_LBUTTONUP: # Left mouse button up
         cropping = False
         end = (x, y)
         x1, y1 = start
@@ -26,5 +26,6 @@ def mouse(event, x, y, flag, others):
 
 cv2.imshow("img", image)
 cv2.setMouseCallback("img", mouse)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.waitKey(0) # Wait for a key press without blocking the window
+cv2.destroyAllWindows() # Close all windows when done
+# Note: The cropping functionality is basic and does not handle cases where the rectangle is drawn in reverse (i.e., top-left to bottom-right).
